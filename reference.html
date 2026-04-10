@@ -1,0 +1,16 @@
+<!DOCTYPE html><html lang="cs"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Reference — NestLine</title><link rel="stylesheet" href="css/style.css"></head><body>
+<header id="site-header"></header>
+<main style="padding-top:72px">
+<section style="padding:120px 24px 80px;max-width:1140px;margin:0 auto"><div class="fade-in" style="max-width:640px"><h1 style="font-size:clamp(36px,5.5vw,60px);font-weight:800;line-height:1.08;letter-spacing:-.03em;margin-bottom:8px" data-i18n="ref.heroTitle"></h1><h1 style="font-size:clamp(36px,5.5vw,60px);font-weight:800;line-height:1.08;letter-spacing:-.03em;color:var(--gold);margin-bottom:28px" data-i18n="ref.heroAccent"></h1><p style="font-size:18px;line-height:1.7;color:var(--g500)" data-i18n="ref.heroSub"></p></div></section>
+<section style="padding:0 24px 100px;max-width:1140px;margin:0 auto" id="cases-container"></section>
+<section id="cta-section" class="bg-gradient"></section>
+</main><footer id="site-footer"></footer>
+<script src="js/main.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded",function(){
+  var cases=[{t:"ref.c1t",p:"ref.c1p",s:"ref.c1s",r:"ref.c1r",m:{roi:"+31%",time:"0h/m",occ:"98%"}},{t:"ref.c2t",p:"ref.c2p",s:"ref.c2s",r:"ref.c2r",m:{roi:"+18%",time:"200h/yr",occ:"100%"}},{t:"ref.c3t",p:"ref.c3p",s:"ref.c3s",r:"ref.c3r",m:{roi:"+27%",time:"0h/m",occ:"99%"}}];
+  function build(){var c=document.getElementById("cases-container");if(!c)return;c.innerHTML=cases.map(function(cs,i){return'<div class="card fade-in d'+(i+1)+'" style="padding:48px;margin-bottom:32px;border-radius:20px"><h3 style="font-size:22px;font-weight:700;margin-bottom:32px">'+T(cs.t)+'</h3><div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:32px;margin-bottom:32px"><div><div style="font-size:11px;font-weight:600;letter-spacing:.15em;color:#EF4444;margin-bottom:8px">'+T("ref.probLabel")+'</div><p style="font-size:14px;line-height:1.7;color:var(--g500)">'+T(cs.p)+'</p></div><div><div style="font-size:11px;font-weight:600;letter-spacing:.15em;color:var(--gold);margin-bottom:8px">'+T("ref.solLabel")+'</div><p style="font-size:14px;line-height:1.7;color:var(--g500)">'+T(cs.s)+'</p></div><div><div style="font-size:11px;font-weight:600;letter-spacing:.15em;color:#10B981;margin-bottom:8px">'+T("ref.resLabel")+'</div><p style="font-size:14px;line-height:1.7;color:var(--g500)">'+T(cs.r)+'</p></div></div><div style="display:flex;gap:24px;flex-wrap:wrap">'+Object.entries(cs.m).map(function(e){return'<div style="padding:12px 24px;background:var(--cream);border-radius:10px;text-align:center"><div style="font-size:24px;font-weight:800">'+e[1]+'</div><div style="font-size:11px;font-weight:600;color:var(--g400);text-transform:uppercase;letter-spacing:.1em">'+e[0]+'</div></div>';}).join("")+'</div></div>';}).join("");initScrollAnimations();}
+  var orig=window.toggleLang;window.toggleLang=function(){orig();build();};setTimeout(build,50);
+});
+</script>
+</body></html>
